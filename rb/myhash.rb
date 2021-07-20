@@ -37,6 +37,8 @@ class Myhash
     case v
     when Hash
       Myhash.to_sym_key(v)
+    when Myhash
+      v.to_sym_key()
     when Array
       v.map { |it| _to_sym_key_val(it) }
     else
@@ -222,6 +224,16 @@ if $0 == __FILE__
          "a" => [{ "b" => 1 }]
        }
      )
+       .to_sym_key
+       .to_plain
+
+  # to_snake => to_sym_key
+  pp Myhash.new(
+       {
+         "aaAa" => { "bbBb" => 1 }
+       }
+     )
+       .to_snake
        .to_sym_key
        .to_plain
 end
