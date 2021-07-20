@@ -1,5 +1,4 @@
 class Myhash
-
   def initialize(hash)
     @h = hash
   end
@@ -176,7 +175,6 @@ class Myhash
       val
     end
   end
-
 end
 
 if $0 == __FILE__
