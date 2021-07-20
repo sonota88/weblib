@@ -33,16 +33,20 @@ class Myhash
     new_h
   end
 
+  def _to_sym_key_val(v)
+    case v
+    when Hash
+      Myhash.to_sym_key(v)
+    else
+      v
+    end
+  end
+
   def to_sym_key
     new_h = {}
 
     @h.each do |k, v|
-      new_v =
-        if v.is_a? Hash
-          Myhash.to_sym_key(v)
-        else
-          v
-        end
+      new_v = _to_sym_key_val(v)
 
       new_k =
         if k.is_a? String
